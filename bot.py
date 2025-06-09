@@ -36,7 +36,7 @@ async def call_api_and_send():
                         filtered_jobs = [job for job in jobsList if job['createTime'] >= (datetime.datetime.now() - datetime.timedelta(minutes=10)).strftime('%Y-%m-%d %H:%M:%S')]
                         
                         # TESTING VALUES
-                        filtered_jobs = jobsList[:3]
+                        # filtered_jobs = jobsList[:3]
                         
                         if filtered_jobs:
                             for job in filtered_jobs[::-1]:
