@@ -47,10 +47,10 @@ async def call_api_and_send():
                                     color=discord.Color.blue()
                                 )
                                 embed.set_author(name=job['company'])
-                                await channel.send(embed=embed)
+                                # await channel.send(embed=embed)
                     else:
                         pass
-                        await channel.send(f"API call failed with status code {response.status}")
+                        # await channel.send(f"API call failed with status code {response.status}")
         except Exception as e:
             await channel.send(f"Error during API call: {e}")
         
