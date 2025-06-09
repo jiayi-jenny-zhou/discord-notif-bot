@@ -10,7 +10,7 @@ load_dotenv()
 
 TOKEN = os.getenv('DISCORD_TOKEN')
 CHANNEL_ID = int(os.getenv('DISCORD_CHANNEL_ID'))  # Ensure this is an integer
-API_URL = 'https://haitou.zhitongguigu.com/api/search'
+API_URL = os.getenv('API_URL')
 POST_PAYLOAD = {"direction":"sde,quant","duration":"","exp":"intern","tag":"","inFavorite":"","methodName":"changeDirection","education":"","remote":"","sponsor":"","country":"","pageIndex":0,"pageSize":30,"system":"US"}
 
 intents = discord.Intents.default()
