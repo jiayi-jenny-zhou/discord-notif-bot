@@ -22,6 +22,8 @@ async def call_api_and_send():
     if channel is None:
         print(f"Channel ID {CHANNEL_ID} not found.")
         return
+        
+    await channel.send("Connected!")
 
     while not client.is_closed():
         try:
