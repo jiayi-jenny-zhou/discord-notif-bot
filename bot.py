@@ -26,7 +26,7 @@ async def call_api_and_send():
         print(f"Channel ID {CHANNEL_ID} not found.")
         return
 
-    await channel.send("Connected!")
+    # await channel.send("Connected!")
     
     while not client.is_closed():
         try:
@@ -52,6 +52,7 @@ async def call_api_and_send():
                             filtered_jobs = [job for job in jobsList if job['createTime'] >= (datetime.datetime.now() - datetime.timedelta(minutes=10)).strftime('%Y-%m-%d %H:%M:%S')]
         
                         last_id = filtered_jobs[0]['id'] if filtered_jobs else last_id
+                        print(f"Last ID updated to: {last_id}")
                         
                         if filtered_jobs:
                             for job in filtered_jobs[::-1]:
@@ -66,6 +67,7 @@ async def call_api_and_send():
                     else:
                         pass
                         await channel.send(f"API call failed with status code {response.status}")
+                        
         except Exception as e:
             await channel.send(f"Error during API call: {e}")
             pass
@@ -79,3 +81,4 @@ async def on_ready():
 
 webserver.keep_alive()  
 client.run(TOKEN)
+
